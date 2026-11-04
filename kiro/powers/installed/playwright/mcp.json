@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "playwright-mcp",
+      "args": [
+        "--headless",
+        "--no-sandbox",
+        "--browser", "chromium",
+        "--output-dir", "/projects/sandbox/.kiro/artifacts/screenshots",
+        "--image-responses", "omit",
+        "--output-mode", "file"
+      ]
+    }
+  }
+}

@@ -1,0 +1,6 @@
+# Volatile Kiro runtime artifacts
+*.lock
+.sync.lock
+kiro/**/*.lock
+# Kiro's internal file-snapshot store (mirrors the workspace recursively)
+kiro/sessions/**/snapshots/

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0.0",
+  "dataModelVersion": 1,
+  "id": "15187c7a-a9c2-49d4-8b09-911db3b81f55",
+  "title": "Sync workspace and chats to GitHub",
+  "agentMode": "vibe",
+  "workspacePaths": [
+    "/projects/sandbox"
+  ],
+  "rootPaths": [
+    "/projects/sandbox"
+  ],
+  "createdAt": "2026-11-04T07:48:19.291Z",
+  "lastModifiedAt": "2026-11-04T08:59:20.248Z",
+  "modelId": "claude-opus-4.8",
+  "autopilot": true,
+  "workflowLaunch": "when-asked",
+  "effortLevel": "xhigh",
+  "contextSnapshotModelDisplay": {
+    "modelId": "claude-opus-5.5",
+    "display": "Claude Opus 5.5"
+  },
+  "semanticReviewEnabled": true,
+  "disableAutoCompaction": false,
+  "ftaEnabled": false,
+  "workflowsEnabled": false,
+  "specPlanEnabled": false,
+  "specWorkflow": "quick",
+  "specSkipClarificationEnabled": true,
+  "memoryConfig": {
+    "mode": "disabled",
+    "reflection": false
+  },
+  "memoryConfigSource": "legacy",
+  "description": "I checked what's in the workspace and found the session log. Now I'm waiting for the user to confirm the repo name, whether it should be private, and whether to include the raw log.",
+  "status": "in_progress"
+}

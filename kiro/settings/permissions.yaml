@@ -1,0 +1,46 @@
+rules:
+  # Prevent the agent from modifying its own trust boundaries
+  - capability: fs_write
+    match:
+      - "~/.kiro/settings/permissions.yaml"
+      - "~/.kiro/settings/permissions.json"
+      - ".kiro/settings/permissions.yaml"
+      - ".kiro/settings/permissions.json"
+      - "/projects/.kiro/settings/permissions.yaml"
+    effect: deny
+  # Deny sandbox reads/writes of outer-container paths the
+  # host-rootfs sandbox newly exposes. TV2 covers subtree
+  # descendants implicitly; enforced independent of Bubblewrap.
+  - capability: fs_read
+    match:
+      - "/opt/amazon"
+      - "/var/run/docker.sock"
+      - "/var/lib/docker"
+      - "/aws/mde/logs"
+      - "/root/.bash_history"
+      - "/root/.ssh/"
+      - "/root/.gnupg/"
+      - "/root/.docker/"
+      - "/root/.kube/"
+    effect: deny
+  - capability: fs_write
+    match:
+      - "/opt/amazon"
+      - "/var/run/docker.sock"
+      - "/var/lib/docker"
+      - "/aws/mde/logs"
+      - "/root/.bash_history"
+      - "/root/.ssh/"
+      - "/root/.gnupg/"
+      - "/root/.docker/"
+      - "/root/.kube/"
+    effect: deny
+  # Keep these outer files readable inside the sandbox: KAS
+  # ro-binds every fs_write-denied path back over its private /tmp.
+  - capability: fs_write
+    match:
+      - "/tmp/access_token"
+    effect: deny
+  # Trust everything else
+  - capability: all
+    effect: allow
